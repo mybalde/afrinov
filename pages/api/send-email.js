@@ -6,20 +6,20 @@ export default async function handler(req, res) {
 
     // Configuration du transporteur SMTP
     const transporter = nodemailer.createTransport({
-      host: process.env.SMTP_HOST,
-      port: process.env.SMTP_PORT,
+      host: process.env.NEXT_SMTP_HOST,
+      port: process.env.NEXT_SMTP_PORT,
       //secure: true,
       auth: {
-          user: process.env.SMTP_EMAIL,
-          pass: process.env.SMTP_PASSWORD
+          user: process.env.NEXT_SMTP_EMAIL,
+          pass: process.env.NEXT_SMTP_PASSWORD
       }
     });
 
     try {
       // Options du mail
       const mailOptions1 = {
-        from: `${process.env.SMTP_FROM_NAME} <${process.env.SMTP_FROM_EMAIL}>`,
-        to: "bobolabado@yahoo.com", //process.env.SMTP_EMAIL, // Email de réception
+        from: `${process.env.NEXT_SMTP_FROM_NAME} <${process.env.NEXT_SMTP_FROM_EMAIL}>`,
+        to: "bobolabado@yahoo.com", //process.env.NEXT_SMTP_EMAIL, // Email de réception
         subject: `Nouveau message de ${name}`,
         text: message,
         html: `
@@ -67,8 +67,8 @@ export default async function handler(req, res) {
       `;
 
       const mailOptions2 = {
-        from: `${process.env.SMTP_FROM_NAME} <${process.env.SMTP_FROM_EMAIL}>`,
-        to: email, //process.env.SMTP_EMAIL, // Email de réception
+        from: `${process.env.NEXT_SMTP_FROM_NAME} <${process.env.NEXT_SMTP_FROM_EMAIL}>`,
+        to: email, //process.env.NEXT_SMTP_EMAIL, // Email de réception
         subject: 'Merci pour votre prise de contact avec M.I.E Afrinnov',
         html: htmlContent,
       };
