@@ -11,6 +11,7 @@ export default async function handler(req, res) {
       await deviceInfo.save();
       res.status(200).json({ message: 'Information saved successfully' });
     } catch (error) {
+      console.error('Error saving device info:', error);  // Utilisation de 'error'
       res.status(500).json({ error: 'Error saving information' });
     }
   } else {

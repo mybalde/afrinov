@@ -26,6 +26,7 @@ export default function Contact() {
         setStatus("Erreur lors de l'envoi de l'email");
       }
     } catch (error) {
+      console.error('Error sending email:', error);  // Utilisation de 'error'
       setStatus("Erreur lors de l'envoi de l'email");
     }
   };
